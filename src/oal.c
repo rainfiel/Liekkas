@@ -22,7 +22,7 @@ struct _oal_state {
 } OAL_STATE = {0};
 
 
-
+#ifdef __APPLE__
 typedef ALvoid  AL_APIENTRY (*alcMacOSXMixerOutputRateProcPtr) (const ALdouble value);
 static ALvoid  
 alcMacOSXMixerOutputRateProc(const ALdouble value) {
@@ -36,14 +36,16 @@ alcMacOSXMixerOutputRateProc(const ALdouble value) {
 
   return;
 }
-
+#endif
 
 static void
 _init_openal(lua_State* L) {
   if(OAL_STATE.is_load)
     return;
 
+#ifdef __APPLE__
   alcMacOSXMixerOutputRateProc(OAL_RATE_DEFAULT);
+#endif
 
 
   ALCcontext* context = NULL;

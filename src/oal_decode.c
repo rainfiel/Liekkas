@@ -4,11 +4,13 @@
 
 int adl_decode_caf(lua_State* L);
 int adl_decode_mp3(lua_State* L);
-int adl_decode_hardware_ios(lua_State* L);
 int adl_decode_wav(lua_State* L);
 int adl_decode_tools(lua_State* L);
 int adl_decode_ogg(lua_State* L);
 
+#ifdef __APPLE__
+int adl_decode_hardware_ios(lua_State* L);
+#endif
 
 
 static char _last_error[512] = {0};
@@ -77,8 +79,12 @@ luaopen_oal_decode(lua_State* L) {
   };
 
   luaL_newlib(L, l);
+
+#ifdef __APPLE__
   adl_decode_hardware_ios(L);
   lua_setfield(L, -2, "decode_hardware_ios");
+#endif
+
   return 1;
 }
 
