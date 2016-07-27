@@ -53,7 +53,7 @@ _get_handle() {
 
 static void*
 _read(mpg123_handle* handle, size_t size, size_t *out_done) {
-  unsigned char* out_buffer = malloc(size);
+  unsigned char* out_buffer = (unsigned char*)malloc(size);
   unsigned char* head = out_buffer;
   size_t head_sz = size;
   size_t read_sz = 0;
@@ -126,7 +126,7 @@ _decode_mp3(const char* filepath, struct oal_info* out) {
   }
 
   size_t done = 0;
-  unsigned char* buffer = _read(handle, size, &done);
+  unsigned char* buffer = (unsigned char*)_read(handle, size, &done);
   if(!buffer) {
     ad_error("mpg123_read error: %s", filepath);
     goto EXIT;

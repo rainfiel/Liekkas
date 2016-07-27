@@ -49,7 +49,7 @@ _info_tostring(lua_State* L) {
 static int
 _info_dump(lua_State* L) {
   struct oal_info* p = (struct oal_info*)lua_touserdata(L, 1);
-  lua_pushlstring(L, p->data, p->size);
+  lua_pushlstring(L, (char*)p->data, p->size);
   return 1;
 }
 
