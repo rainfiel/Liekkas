@@ -20,7 +20,6 @@ struct _oal_state {
 } OAL_STATE = {0};
 
 
-
 #ifdef __APPLE__
 typedef ALvoid  AL_APIENTRY (*alcMacOSXMixerOutputRateProcPtr) (const ALdouble value);
 static ALvoid  
