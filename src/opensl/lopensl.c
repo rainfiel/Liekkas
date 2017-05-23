@@ -205,7 +205,7 @@ int
 luaopen_liekkas(lua_State* L) {
     luaL_checkversion(L);
     if(!sl_isinit()) {
-       // luaL_error(L, "opensl not init");
+       luaL_error(L, "opensl not init");
     }
 
     luaL_Reg l[] = {
