@@ -13,6 +13,8 @@
 #elif __ANDROID__
     #define PLATFORM_ANDROID
     int bgm_android(lua_State* L);
+#else
+		int bgm_null(lua_State* L);
 #endif
 
 
@@ -25,7 +27,6 @@ luaopen_liekkas_bgm(lua_State* L) {
     #elif defined (PLATFORM_ANDROID)
     return bgm_android(L);
     #else
-    lua_pushboolean(L, 0);
-    return 1;
+		return bgm_null(L);
     #endif
 }

@@ -22,7 +22,7 @@ static int
 _id2string(lua_State* L) {
     uintptr_t v = _get_value(uintptr_t, L, -1);
     char buffer[24] = {0};
-    sprintf(buffer, "0x%.8x", v);
+    sprintf(buffer, "0x%.8x", (unsigned int)v);
     lua_pushstring(L, buffer);
     return 1;
 }
@@ -205,7 +205,7 @@ int
 luaopen_liekkas(lua_State* L) {
     luaL_checkversion(L);
     if(!sl_isinit()) {
-        luaL_error(L, "opensl not init");
+       // luaL_error(L, "opensl not init");
     }
 
     luaL_Reg l[] = {
