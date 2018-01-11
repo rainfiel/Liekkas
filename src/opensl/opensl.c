@@ -620,7 +620,7 @@ sl_bgm_pause() {
 
 // -------------------- for JNI --------------------
 JNIEXPORT jboolean JNICALL
-Java_com_ejoy2dx_doorkickers_Liekkas_engineInit(JNIEnv* env, jclass clazz, jobject assetManager) {
+Java_com_ejoy2dx_example_Liekkas_engineInit(JNIEnv* env, jclass clazz, jobject assetManager) {
     bool ret = sl_init();
     ENV.asset_mgr = AAssetManager_fromJava(env, assetManager);
     return (ret)?(JNI_TRUE):(JNI_FALSE);
@@ -628,19 +628,19 @@ Java_com_ejoy2dx_doorkickers_Liekkas_engineInit(JNIEnv* env, jclass clazz, jobje
 
 
 JNIEXPORT void JNICALL
-Java_com_ejoy2dx_doorkickers_Liekkas_engineDestory(JNIEnv* env, jclass clazz) {
+Java_com_ejoy2dx_example_Liekkas_engineDestory(JNIEnv* env, jclass clazz) {
     sl_destory();
 }
 
 
 JNIEXPORT void JNICALL
-Java_com_ejoy2dx_doorkickers_Liekkas_enginePause(JNIEnv* env, jclass clazz) {
+Java_com_ejoy2dx_example_Liekkas_enginePause(JNIEnv* env, jclass clazz) {
     sl_pause();
 }
 
 
 JNIEXPORT void JNICALL
-Java_com_ejoy2dx_doorkickers_Liekkas_engineResume(JNIEnv* env, jclass clazz) {
+Java_com_ejoy2dx_example_Liekkas_engineResume(JNIEnv* env, jclass clazz) {
     sl_resume();
 }
 
