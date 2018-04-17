@@ -133,7 +133,6 @@ ERROR:
 
 void
 util_file_close(struct util_fp* handle) {
-    printf("util_file_close!!!! %p\n", handle);
     if(!handle)
         return;
 
